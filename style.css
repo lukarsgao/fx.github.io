@@ -1,0 +1,21 @@
+body{
+    margin:auto;
+    width:98%;
+ 
+    font-family: 微軟正黑體,"Microsoft JhengHei" !important;
+    font-size:12px;
+}
+ 
+.shadow
+{
+    box-shadow: 10px 5px 5px rgb(210, 241, 218);
+}
+ 
+.div_chart
+{
+    width:50%;
+    border: 2px solid rgb(231, 229, 229);
+    padding: 10px;
+    box-shadow: 5px 5px 5px rgb(214, 213, 213);
+    border-radius: 10px;
+}

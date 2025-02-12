@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" />
+    <link rel="stylesheet" href="style.css">
+    <title>Load JSON Example</title>
+</head>
+<body>
+    <h1>JSON Data</h1>
+    <div id="content"></div>
+    <div class="div_chart">
+      <canvas id="myChart"></canvas>
+    </div>
+    <br>
+    <div class="div_chart">
+        <canvas id="myChartB"></canvas>
+      </div>
+    <script src="chart3.7.1.js"></script>
+    <script>
+    function plot_line(result)
+    {
+        let ctx = document.getElementById( "myChart" )
+        let label = result.x
+        let data_pf = {
+                label: "of Votes", // 標籤
+                data: result.y, // 資料
+                borderColor: "rgba(66, 123, 228)",
+                fill : false
+            }
+               
+        let data={
+                labels: label, // 標題
+                datasets: [data_pf]
+            }
+        let options = {
+                responsive:true,
+                plugins: {
+                    legend: {
+                        display: false,
+                    }
+                },
+                scales: {
+                    x: {
+                        stacked: true,
+                        ticks: {
+                            font: {
+                                size: 20
+                            }
+                        },
+                    },
+                    y: {
+                        stacked: true,
+                        ticks: {
+                            font: {
+                                size: 20
+                            }
+                        },
+                    },
+                },
+            }
+        example = new Chart(ctx, {
+            // 參數設定[註1]
+            type: "line", // 圖表類型
+            data: data,
+            options:options
+        });
+    }
+ 
+    function plot_bar(result)
+    {
+        let ctx = document.getElementById( "myChartB" )
+        let label = result.day
+        let data_prof=
+            {
+                type:"line",
+                label: "prof", // 標籤
+                data: result.prof, // 資料
+                borderColor: "rgba(66, 123, 228)",
+            }
+        let data_loss=  
+            {
+                label: "loss", // 標籤
+                data: result.loss, // 資料
+                backgroundColor:"rgba(233, 156, 156)",
+            }
+        let data = {
+                labels: label, // 標題
+                datasets: [data_prof,data_loss]
+            }
+        let options =
+            {
+                responsive:true,
+                plugins: {
+                    legend: {
+                        display: false,
+                    }
+                },
+                scales: {
+                    x: {
+                        stacked: true,
+                        ticks: {
+                            font: {
+                                size: 20
+                            }
+                        },
+                    },
+                    y: {
+                        stacked: true,
+                        ticks: {
+                            font: {
+                                size: 20
+                            }
+                        },
+                    },
+                },
+                title : {
+                    display : true,
+                    text : "dafsdaf"
+                }
+ 
+            }
+        example = new Chart(ctx, {
+            // 參數設定[註1]
+            type: "bar", // 圖表類型
+            data: data,
+            options: options
+ 
+        });
+    }
+ 
+    fetch('data.json')
+    .then(res => {
+        return res.json();
+    }).then(result => {
+        plot_line(result);
+    });
+ 
+    fetch('data_daily.json')
+    .then(res => {
+        return res.json();
+    }).then(result => {
+        plot_bar(result);
+    });
+    </script>
+</body>
+</html>
