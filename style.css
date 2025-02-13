@@ -10,7 +10,7 @@ body{
 {
     width:90%;
     border: 2px solid rgb(231, 229, 229);
-    padding: 20px;
-    box-shadow: 0 0 5px rgb(214, 213, 213);
+    padding: 50px;
+    box-shadow: 0 0 20px rgb(214, 213, 213);
     border-radius: 10px;
 }
