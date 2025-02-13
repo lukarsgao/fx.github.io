@@ -8,11 +8,15 @@ body{
 #content
 {
     width:90%;
+    display: flex;
+  /* 水平置中 */
+  justify-content: center;    
+  /* 垂直置中 */
+  align-items: center;  
 }
  
 .div_chart
 {
-    width:90%;
     border: 2px solid rgb(231, 229, 229);
     padding: 100px 10px 100px 10px;
     box-shadow: 0 0 30px rgb(10, 10, 10);
