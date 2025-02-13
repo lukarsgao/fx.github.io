@@ -7,7 +7,7 @@ body{
 }
 #content
 {
-    width:90%;
+
     display: flex;
   /* 水平置中 */
   justify-content: center;    
