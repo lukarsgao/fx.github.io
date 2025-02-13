@@ -17,7 +17,7 @@ body{
  
 .div_chart
 {
-    width:90%;
+    width:90vw;
     border: 2px solid rgb(231, 229, 229);
     padding: 100px 10px 100px 10px;
     box-shadow: 0 0 30px rgb(10, 10, 10);
