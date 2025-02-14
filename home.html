@@ -20,18 +20,18 @@
       </div>
     <script src="chart3.7.1.js"></script>
     <script>
-    function hline(value,color)
+    function hline(_value,_color)
     {
         const hline = {
             id: 'horizontalLine',
             afterDraw: (chart) => {
-                const yValue = chart.scales.y.getPixelForValue(value);
+                const yValue = chart.scales.y.getPixelForValue(_value);
                 const ctx = chart.ctx;
                 ctx.save();
                 ctx.beginPath();
                 ctx.moveTo(chart.chartArea.left, yValue);
                 ctx.lineTo(chart.chartArea.right, yValue);
-                ctx.strokeStyle = color;
+                ctx.strokeStyle = _color;
                 ctx.lineWidth = 0.5;
                 ctx.stroke();
                 ctx.restore();
@@ -39,15 +39,15 @@
         };
         return hline
     };
-    function chartBorder(width,color)
+    function chartBorder(_width,_color)
     {
         const chartAreaBorder = {
             id: 'chartAreaBorder',
             beforeDraw(chart, args, options) {
                 const {ctx, chartArea: {left, top, width, height}} = chart;
                 ctx.save();
-                ctx.strokeStyle = color;
-                ctx.lineWidth = width;
+                ctx.strokeStyle = _color;
+                ctx.lineWidth = _width;
                 ctx.setLineDash(options.borderDash || []);
                 ctx.lineDashOffset = options.borderDashOffset;
                 ctx.strokeRect(left, top, width, height);
@@ -157,7 +157,7 @@
             type: "bar", // 圖表類型
             data: data,
             options: options,
-            plugins: [hline(0,'black'),hline(-1000,'red'),,chartBorder(0.5,'black')]
+            plugins: [hline(0,'black'),hline(-1000,'red'),chartBorder(0.5,'black')]
         });
     }
  
