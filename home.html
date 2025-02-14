@@ -38,7 +38,24 @@
             }
         };
         return hline
-    }
+    };
+    function chartBorder(width,color)
+    {
+        const chartAreaBorder = {
+            id: 'chartAreaBorder',
+            beforeDraw(chart, args, options) {
+                const {ctx, chartArea: {left, top, width, height}} = chart;
+                ctx.save();
+                ctx.strokeStyle = color;
+                ctx.lineWidth = width;
+                ctx.setLineDash(options.borderDash || []);
+                ctx.lineDashOffset = options.borderDashOffset;
+                ctx.strokeRect(left, top, width, height);
+                ctx.restore();
+            }
+        };
+        return chartAreaBorder
+    };
     function plot_line(result)
     {
         let ctx = document.getElementById( "myChart" )
@@ -81,7 +98,7 @@
             type: "line", // 圖表類型
             data: data,
             options:options,
-            plugins: [hline(0,'black')]
+            plugins: [hline(0,'black'),chartBorder(0.5,'black')]
         });
     }
  
@@ -140,7 +157,7 @@
             type: "bar", // 圖表類型
             data: data,
             options: options,
-            plugins: [hline(0,'black'),hline(-1000,'red')]
+            plugins: [hline(0,'black'),hline(-1000,'red'),,chartBorder(0.5,'black')]
         });
     }
  
