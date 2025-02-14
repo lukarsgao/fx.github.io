@@ -8,27 +8,22 @@ body{
 #content
 {
 
-
+  width:90vw;
   /* 水平置中 */
   justify-content: center;    
   /* 垂直置中 */
   align-items: center;  
+  margin-left: auto;
+  margin-right:auto;
 }
 
-canvas{
-
-    width:90vw !important;
-
-  
-  }
 
 .div_chart
 {
-    width:90vw;
+    
     border: 2px solid rgb(231, 229, 229);
     padding: 100px 10px 100px 10px;
     box-shadow: 0 0 15px rgb(90, 90, 90);
     border-radius: 10px;
-    margin-left: auto;
-    margin-right:auto;
+
 }
