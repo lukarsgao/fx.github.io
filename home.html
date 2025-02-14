@@ -20,18 +20,18 @@
       </div>
     <script src="chart3.7.1.js"></script>
     <script>
-    function hline(_value,_color)
+    function hline(value,color)
     {
         const hline = {
             id: 'horizontalLine',
             afterDraw: (chart) => {
-                const yValue = chart.scales.y.getPixelForValue(_value);
+                const yValue = chart.scales.y.getPixelForValue(value);
                 const ctx = chart.ctx;
                 ctx.save();
                 ctx.beginPath();
                 ctx.moveTo(chart.chartArea.left, yValue);
                 ctx.lineTo(chart.chartArea.right, yValue);
-                ctx.strokeStyle = _color;
+                ctx.strokeStyle = color;
                 ctx.lineWidth = 0.5;
                 ctx.stroke();
                 ctx.restore();
