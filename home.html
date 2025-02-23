@@ -166,14 +166,14 @@
 
     function m5_img(result)
      {
-       let wb = result.web
-       let imggg = ''
+       let wb = result.web;
+       let imggg = '';
       for (let i =0; i<wb.length; i++)
       {
-        imgg+= "<div class="div_chart"><img src='" + wb[i] +"' width=100%></div><br><br>"
+        imgg+= "<div class="div_chart"><img src='" + wb[i] +"' width=100%></div><br><br>";
        
       }
-    document.getElementById("m5").innerHTML = imgg
+    document.getElementById("m5").innerHTML = imgg;
      }
      
     fetch('data.json')
