@@ -9,10 +9,11 @@
 </head>
 <body>
     <div id="header">
-
-    </div>    
-    <div id="content"><h1>JSON Data1</h1>
-    <divi id='m5'>
+        <a href="home.html">Home</a>&nbsp;&nbsp;&nbsp;
+        <a href="history.html">Home</a>
+    </div>
+    <div id="content"><h1>JSON Data</h1>
+    <div id='m5'>
       <div class="div_chart"><img src='https://zrjh3zjccycdcgeslp47cq.on.drv.tw/web/m5/2025-02-21_05_EURUSD.png' width=100%></div><br><br>
     </div>
     <div class="div_chart">
@@ -178,13 +179,6 @@
     document.getElementById("m5").innerHTML = imgg;
      }
      
-    fetch('header.text')
-    .then(res => {
-        return res.text();
-    }).then(result => {
-        document.getElementById("header").innerHTML=result;
-    });
-     
     fetch('data.json')
     .then(res => {
         return res.json();
@@ -205,7 +199,6 @@
     }).then(result => {
         m5_img(result);
     });
-
     </script>
     </div>
 </body>

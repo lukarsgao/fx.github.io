@@ -7,7 +7,6 @@ body{
 }
 #content
 {
-
   width:90vw;
   /* 水平置中 */
   justify-content: center;    
@@ -17,6 +16,19 @@ body{
   margin-right:auto;
 }
 
+#header
+{
+  width:100vw;
+  background-color: rgba(44, 44, 44, 0.692);
+
+
+}
+a:link, a:visited {
+  color:white;
+  font-size: 36px;
+  text-decoration: none;
+  padding: 20px 30px;
+}
 
 .div_chart
 {
