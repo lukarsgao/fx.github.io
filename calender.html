@@ -6,40 +6,16 @@
     <meta name="viewport" />
     <link rel="stylesheet" href="style.css">
     <title>FX</title>
+
 </head>
 <body>
     <div id="header">
         <a href="home.html">Home</a>&nbsp;&nbsp;&nbsp;
         <a href="history.html">History</a>&nbsp;&nbsp;&nbsp;
         <a href="calender.html">News</a>&nbsp;&nbsp;&nbsp;
-    </div>     
+    </div>    
     <div id="content"><h1></h1>
-    <divi id='m5'>
-    </div>
-
-    <script src="chart3.7.1.js"></script>
-    <script>
-    function m5_img(result)
-    {
-       let wb = result.web;
-       let imgg = '';
-      for (let i =0; i<wb.length; i++)
-      {
-        imgg+= "<div class='div_chart'><img src='" + wb[i] +"' width=100%></div><br><br>";
-       
-      }
-        document.getElementById("m5").innerHTML = imgg;
-    }
-     
-    
-     fetch('m5_path.json')
-    .then(res => {
-        return res.json();
-    }).then(result => {
-        m5_img(result);
-    });
-
-    </script>
+        <iframe src="http://fx.somee.com/" width="100%" height="8000px" frameBorder="0" scrolling="no"></iframe>
     </div>
 </body>
 </html>
