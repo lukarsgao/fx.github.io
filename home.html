@@ -178,12 +178,7 @@
     document.getElementById("m5").innerHTML = imgg;
      }
      
-    fetch('header.text')
-    .then(res => {
-        return res.text();
-    }).then(result => {
-        document.getElementById("header").innerHTML=result;
-    });
+
      
     fetch('data.json')
     .then(res => {
