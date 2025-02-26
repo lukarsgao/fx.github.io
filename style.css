@@ -20,14 +20,15 @@ body{
 {
   width:100vw;
   background-color: rgba(44, 44, 44, 0.692);
-  height:4vh;
+
+  padding: 10px 30px;
 }
 
 a:link, a:visited {
   color:white;
   font-size: 36px;
   text-decoration: none;
-  margin: 20px 30px;
+
 }
 
 .div_chart
