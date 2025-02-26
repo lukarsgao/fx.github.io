@@ -26,9 +26,12 @@ body{
 
 a:link, a:visited {
   color:white;
-  font-size: 36px;
+  font-size: 48px;
   text-decoration: none;
+}
 
+.links{
+  margin:50px 20px;
 }
 
 .div_chart
