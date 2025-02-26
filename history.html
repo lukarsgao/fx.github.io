@@ -1,45 +1,36 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
- 
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" />
     <link rel="stylesheet" href="style.css">
     <title>FX</title>
+    <script src="chart3.7.1.js"></script>
+    <script src="javas.js"></script>
 </head>
+
 <body>
     <div id="header">
-        <a href="home.html">Home</a>&nbsp;&nbsp;&nbsp;
-        <a href="history.html">History</a>&nbsp;&nbsp;&nbsp;
-        <a href="calender.html">News</a>&nbsp;&nbsp;&nbsp;
-    </div>     
-    <div id="content"><h1></h1>
-    <divi id='m5'>
+        <div w3-include-html="header.html"></div>
     </div>
+    <div id="content">
+        <h1></h1>
+        <div id='m5'></div>
+        <script>
+            includeHTML();
 
-    <script src="chart3.7.1.js"></script>
-    <script>
-    function m5_img(result)
-    {
-       let wb = result.web;
-       let imgg = '';
-      for (let i =0; i<wb.length; i++)
-      {
-        imgg+= "<div class='div_chart'><img src='" + wb[i] +"' width=100%></div><br><br>";
-       
-      }
-        document.getElementById("m5").innerHTML = imgg;
-    }
-     
-    
-     fetch('m5_path.json')
-    .then(res => {
-        return res.json();
-    }).then(result => {
-        m5_img(result);
-    });
+            fetch('datas.json')
+                .then(res => {
+                    return res.json();
+                }).then(result => {
+                    m5_img(result.m5);
+                });
 
-    </script>
+        </script>
     </div>
 </body>
+
 </html>
