@@ -1,209 +1,44 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
- 
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" />
     <link rel="stylesheet" href="style.css">
     <title>FX</title>
+    <script src="chart3.7.1.js"></script>
+    <script src="javas.js"></script>
 </head>
+
 <body>
     <div id="header">
-        <a href="home.html">Home</a>&nbsp;&nbsp;&nbsp;
-        <a href="history.html">History</a>&nbsp;&nbsp;&nbsp;
-        <a href="calender.html">News</a>&nbsp;&nbsp;&nbsp;
-    </div>  
-    <div id="content"><h1>JSON Data1</h1>
-    <!-- <divi id='m5'>
-      <div class="div_chart"><img src='https://zrjh3zjccycdcgeslp47cq.on.drv.tw/web/m5/2025-02-21_05_EURUSD.png' width=100%></div><br><br>
-    </div> -->
-    <div class="div_chart">
-      <canvas id="myChart"></canvas>
+        <div w3-include-html="header.html"></div>
     </div>
-    <br>
-    <br>
-    <div class="div_chart">
-        <canvas id="myChartB"></canvas>
-    </div>
-    <script src="chart3.7.1.js"></script>
-    <script>
-    function hline(value,color)
-    {
-        const hline = {
-            id: 'horizontalLine',
-            afterDraw: (chart) => {
-                const yValue = chart.scales.y.getPixelForValue(value);
-                const ctx = chart.ctx;
-                ctx.save();
-                ctx.beginPath();
-                ctx.moveTo(chart.chartArea.left, yValue);
-                ctx.lineTo(chart.chartArea.right, yValue);
-                ctx.strokeStyle = color;
-                ctx.lineWidth = 0.5;
-                ctx.stroke();
-                ctx.restore();
-            }
-        };
-        return hline
-    };
-    function chartBorder(_width,_color)
-    {
-        const chartAreaBorder = {
-            id: 'chartAreaBorder',
-            beforeDraw(chart, args, options) {
-                const {ctx, chartArea: {left, top, width, height}} = chart;
-                ctx.save();
-                ctx.strokeStyle = _color;
-                ctx.lineWidth = _width;
-                ctx.setLineDash(options.borderDash || []);
-                ctx.lineDashOffset = options.borderDashOffset;
-                ctx.strokeRect(left, top, width, height);
-                ctx.restore();
-            }
-        };
-        return chartAreaBorder
-    };
-    function plot_line(result)
-    {
-        let ctx = document.getElementById( "myChart" )
-        let label = result.x
-        let data_pf = {
-                label: "of Votes", // 標籤
-                data: result.y, // 資料
-                borderColor: "rgba(66, 123, 228)",
-                borderWidth: 5,
-                fill : false,
-                pointRadius: 0,
-                tension:0.5,
-        };
+    <div id="content">
+        <h1>JSON Data1</h1>
+        <div class="div_chart">
+            <canvas id="myChart"></canvas>
+        </div>
+        <br>
+        <br>
+        <div class="div_chart">
+            <canvas id="myChartB"></canvas>
+        </div>
 
+        <script>
+            includeHTML();
 
-        let data={
-                labels: label, // 標題
-                datasets: [data_pf]
-            }
-        let options = {
-                responsive:true,
-                aspectRatio: 1.7,
-                plugins: {
-                    legend: {
-                        display: false,
-                    },
-                },
-                scales: {
-                    x: {
-                        ticks: {font: {size: 30, weight:"bold"}},
-                        grid:{display:false},
-                    },
-                    y: {
-                        ticks: {font: {size: 30, weight:"bold"}},
-                    },
-                },
-        }
-        example = new Chart(ctx, {
-            // 參數設定[註1]
-            type: "line", // 圖表類型
-            data: data,
-            options:options,
-            plugins: [hline(0,'black'),chartBorder(0.5,'black')]
-        });
-    }
- 
-    function plot_bar(result)
-    {
-        let ctx = document.getElementById( "myChartB" )
-        let label = result.day
-        let data_prof=
-            {
-                //type:"bar",
-                label: "prof", // 標籤
-                data: result.prof, // 資料
-                cbackgroundColor: "rgba(108, 237, 62, 0.5)",
-                //borderWidth: 5,
-                //fill : false,
-                //pointRadius: 0,
-                //tension:0.5,
-            }
-        let data_loss=  
-            {
-                label: "loss", // 標籤
-                data: result.loss, // 資料
-                backgroundColor:"rgba(233, 156, 156, 0.5)",
-            }
-        let data = {
-                labels: label, // 標題
-                datasets: [data_prof,data_loss]
-            }
-        let options =
-            {
-                responsive:true,
-                aspectRatio: 1.7,
-                plugins: {
-                    legend: {
-                        display: false,
-                    }
-                },
-                scales: {
-                    x: {
-                        ticks: {font: {size: 30, weight:"bold"}},
-                        grid:{display:false},
-                    },
-                    y: {
-                        //stacked:true,
-                        ticks: {font: {size: 30, weight:"bold"}},
-                    },
-                },
-                title : {
-                    display : true,
-                    text : "dafsdaf"
-                }
- 
-            }
-        example = new Chart(ctx, {
-            // 參數設定[註1]
-            type: "bar", // 圖表類型
-            data: data,
-            options: options,
-            plugins: [hline(0,'black'),hline(-1000,'red'),chartBorder(0.5,'black')]
-        });
-    }
+            fetch('datas.json')
+                .then(res => {
+                    return res.json();
+                }).then(result => {
+                    plot_line(result.plot_line);
+                    plot_bar(result.plot_bar);
+                });
 
-    // function m5_img(result)
-    //  {
-    //    let wb = result.web;
-    //    let imgg = '';
-    //   for (let i =0; i<wb.length; i++)
-    //   {
-    //     imgg+= "<div class='div_chart'><img src='" + wb[i] +"' width=100%></div><br><br>";
-       
-    //   }
-    // document.getElementById("m5").innerHTML = imgg;
-    //  }
-     
-
-     
-    fetch('data.json')
-    .then(res => {
-        return res.json();
-    }).then(result => {
-        plot_line(result);
-    });
- 
-    fetch('data_daily.json')
-    .then(res => {
-        return res.json();
-    }).then(result => {
-        plot_bar(result);
-    });
-    
-    //  fetch('m5_path.json')
-    // .then(res => {
-    //     return res.json();
-    // }).then(result => {
-    //     m5_img(result);
-    // });
-
-    </script>
+        </script>
     </div>
 </body>
 </html>
