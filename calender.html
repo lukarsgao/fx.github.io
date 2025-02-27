@@ -1,21 +1,57 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
- 
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" />
     <link rel="stylesheet" href="style.css">
     <title>FX</title>
-
+    <script src="chart3.7.1.js"></script>
+    <script src="javas.js"></script>
 </head>
+
 <body>
     <div id="header">
-        <a href="home.html">Home</a>&nbsp;&nbsp;&nbsp;
-        <a href="history.html">History</a>&nbsp;&nbsp;&nbsp;
-        <a href="calender.html">News</a>&nbsp;&nbsp;&nbsp;
-    </div>    
-    <div id="content"><h1></h1>
-        <iframe src="http://fx.somee.com/" width="100%" height="8000px" frameBorder="0" scrolling="no"></iframe>
+        <div w3-include-html="header.html"></div>
     </div>
+    <div id="content"><h1></h1>
+        <div id="today"></div>
+        
+    </div>
+    <script>
+        includeHTML();
+        
+
+        function news(res){
+            let rt = '';
+            rt+=`<table><tr><td colspan='5'>${res.todayd}<br>${res.today}</td></tr>`
+
+            rt+="<tr>"
+            for (let i = 0; i < res.w1d.length ; i++) {
+                rt+=`<td>${res.w1d[i]}</td>`
+            }
+            rt+="</tr>"  
+            rt+="<tr>"
+            for (let i = 0; i < res.w1.length ; i++) {
+                rt+=`<td valign='top'>${res.w1[i]}</td>`
+            }
+            rt+="</tr>"              
+            
+            rt+="</table>"
+            document.getElementById("today").innerHTML = rt;
+        }
+
+
+        fetch('calender.json')
+            .then(res => {
+                return res.json();
+            }).then(result => {
+                news(result);
+                // document.getElementById("today").innerHTML = result
+            });
+
+    </script>
 </body>
 </html>
