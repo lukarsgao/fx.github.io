@@ -41,3 +41,19 @@ a:link, a:visited {
     box-shadow: 0 0 15px rgb(90, 90, 90);
     border-radius: 10px;
 }
+
+.inline{
+  display: inline-block;
+}
+
+.left{
+  float: left;
+}
+
+.c_us{
+  background-color: rgb(106, 106, 218);
+}
+
+.c_other{
+  background-color: rgb(153, 238, 157);
+}
