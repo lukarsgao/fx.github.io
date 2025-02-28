@@ -26,7 +26,7 @@
 
         function news(res){
             let rt = '';
-            rt+=`${res.todayd}<br>${res.today}<br>`
+            rt+=`<div cleas=''>${res.todayd}<br>${res.today}</div>`
 
             rt+="<table border='1'>"
             rt+="<tr>"
@@ -43,9 +43,7 @@
             rt+="</tr>"              
             rt+="<tr>"
             for (let i = 0; i < res.w2d.length ; i++) {
-                let red = ''
-                if (res.w1d[i] == res.todayd) red='bgred'
-                rt+=`<td align='center' class='${red}'>${res.w2d[i]}</td>`
+                rt+=`<td align='center'>${res.w2d[i]}</td>`
             }
             rt+="</tr>"  
             rt+="<tr>"

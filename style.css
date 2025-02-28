@@ -32,11 +32,15 @@ body{
   margin: 2px;
 }
 
-
+.bgholiday{
+  background-color: rgb(39, 161, 23);
+  color:white;
+  font-weight: bold;
+}
 
 a:link, a:visited {
   color:white;
-  font-size:5vw;
+  font-size: 8vw;
   text-decoration: none;
 }
 
