@@ -26,19 +26,33 @@
 
         function news(res){
             let rt = '';
-            rt+=`<table><tr><td colspan='5'>${res.todayd}<br>${res.today}</td></tr>`
+            rt+=`${res.todayd}<br>${res.today}<br>`
 
+            rt+="<table border='1'>"
             rt+="<tr>"
             for (let i = 0; i < res.w1d.length ; i++) {
-                rt+=`<td>${res.w1d[i]}</td>`
+                let red = ''
+                if (res.w1d[i] == res.todayd) red='bgred'
+                rt+=`<td align='center' class='${red}'>${res.w1d[i]}</td>`
             }
             rt+="</tr>"  
             rt+="<tr>"
             for (let i = 0; i < res.w1.length ; i++) {
-                rt+=`<td valign='top'>${res.w1[i]}</td>`
+                rt+=`<td valign='top' width='19%'>${res.w1[i]}</td>`
             }
             rt+="</tr>"              
-            
+            rt+="<tr>"
+            for (let i = 0; i < res.w2d.length ; i++) {
+                let red = ''
+                if (res.w1d[i] == res.todayd) red='bgred'
+                rt+=`<td align='center' class='${red}'>${res.w2d[i]}</td>`
+            }
+            rt+="</tr>"  
+            rt+="<tr>"
+            for (let i = 0; i < res.w2.length ; i++) {
+                rt+=`<td valign='top' width='19%'>${res.w2[i]}</td>`
+            }
+            rt+="</tr>"              
             rt+="</table>"
             document.getElementById("today").innerHTML = rt;
         }

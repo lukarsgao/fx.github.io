@@ -2,7 +2,7 @@ body{
     margin:auto;
     width:100%;
     font-family: 微軟正黑體,"Microsoft JhengHei" !important;
-    font-size:12px;
+    font-size: min(max(1rem, 6vw), 3rem);
 }
 
 #content
@@ -24,6 +24,16 @@ body{
   padding: 10px 30px;
 }
 
+/* ------------news------------------- */
+
+.inline{
+  display: inline-block;
+  padding: 1px 10px;
+  margin: 2px;
+}
+
+
+
 a:link, a:visited {
   color:white;
   font-size: 48px;
@@ -42,8 +52,24 @@ a:link, a:visited {
     border-radius: 10px;
 }
 
-.inline{
-  display: inline-block;
+table {
+  border-collapse: collapse; 
+  border:1px solid #000000;
+} 
+
+.orange{
+  color:orange;
+}
+
+.red{
+  color:red;
+  font-weight: bold;
+}
+
+.bgred{
+  background-color: red;
+  color:white;
+  font-weight: bold;
 }
 
 .left{
