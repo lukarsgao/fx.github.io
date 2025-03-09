@@ -146,7 +146,7 @@ function plot_bar(result) {
             },
             y: {
                 //stacked:true,
-                ticks: { font: { size: 12 weight: "bold" } },
+                ticks: { font: { size: 12, weight: "bold" } },
             },
         },
         title: {
