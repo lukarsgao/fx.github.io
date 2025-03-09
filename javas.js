@@ -68,7 +68,7 @@ function plot_line(result) {
         label: "of Votes", // 標籤
         data: result.y, // 資料
         borderColor: "rgba(66, 123, 228)",
-        borderWidth: 5,
+        borderWidth: 2,
         fill: false,
         pointRadius: 0,
         tension: 0.5,
@@ -89,11 +89,11 @@ function plot_line(result) {
         },
         scales: {
             x: {
-                ticks: { font: { size: 15, weight: "bold" } },
+                ticks: { font: { size: 12, weight: "bold" } },
                 grid: { display: false },
             },
             y: {
-                ticks: { font: { size: 15, weight: "bold" } },
+                ticks: { font: { size: 12, weight: "bold" } },
             },
         },
     }
@@ -141,12 +141,12 @@ function plot_bar(result) {
         },
         scales: {
             x: {
-                ticks: { font: { size: 15, weight: "bold" } },
+                ticks: { font: { size: 12, weight: "bold" } },
                 grid: { display: false },
             },
             y: {
                 //stacked:true,
-                ticks: { font: { size: 15, weight: "bold" } },
+                ticks: { font: { size: 12 weight: "bold" } },
             },
         },
         title: {
