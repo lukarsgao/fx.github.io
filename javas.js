@@ -114,7 +114,7 @@ function plot_bar(result) {
         //type:"bar",
         label: "prof", // 標籤
         data: result.prof, // 資料
-        cbackgroundColor: "rgba(108, 237, 62, 0.5)",
+        cbackgroundColor: "rgba(72, 245, 81, 0.5)",
         //borderWidth: 5,
         //fill : false,
         //pointRadius: 0,
