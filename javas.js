@@ -89,11 +89,11 @@ function plot_line(result) {
         },
         scales: {
             x: {
-                ticks: { font: { size: 30, weight: "bold" } },
+                ticks: { font: { size: 15, weight: "bold" } },
                 grid: { display: false },
             },
             y: {
-                ticks: { font: { size: 30, weight: "bold" } },
+                ticks: { font: { size: 15, weight: "bold" } },
             },
         },
     }
@@ -141,12 +141,12 @@ function plot_bar(result) {
         },
         scales: {
             x: {
-                ticks: { font: { size: 30, weight: "bold" } },
+                ticks: { font: { size: 15, weight: "bold" } },
                 grid: { display: false },
             },
             y: {
                 //stacked:true,
-                ticks: { font: { size: 30, weight: "bold" } },
+                ticks: { font: { size: 15, weight: "bold" } },
             },
         },
         title: {
