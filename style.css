@@ -2,7 +2,7 @@ body{
     margin:auto;
     width:100%;
     font-family: 微軟正黑體,"Microsoft JhengHei" !important;
-    font-size: min(max(1rem, 3vw), 2rem);
+    font-size: 3rem;
 }
 
 #content
