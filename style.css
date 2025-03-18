@@ -61,6 +61,10 @@ table {
   border:1px solid #000000;
 } 
 
+tr, td {
+  padding:2px;
+  spacing:2px;
+}
 .orange{
   color:orange;
 }
