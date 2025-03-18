@@ -2,12 +2,12 @@ body{
     margin:auto;
     width:100%;
     font-family: 微軟正黑體,"Microsoft JhengHei" !important;
-    font-size: 4rem;
+    font-size: 2vw;
 }
 
 #content
 {
-  width:95vw;
+  width:100vw;
   /* 水平置中 */
   justify-content: center;    
   /* 垂直置中 */
