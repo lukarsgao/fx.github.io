@@ -6,6 +6,11 @@ body{
     justify-content: center;    
 }
 
+.bodyB{
+  background-color: black;
+  color:azure;
+}
+
 #content
 {
   width:96vw;
