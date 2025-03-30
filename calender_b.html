@@ -1,0 +1,69 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" />
+    <link rel="stylesheet" href="style.css">
+    <title>FX</title>
+    <script src="chart3.7.1.js"></script>
+    <script src="javas.js"></script>
+</head>
+
+<body class="bodyB">
+    <!-- <div id="header">
+        <div w3-include-html="header.html"></div>
+    </div> -->
+    <div id="content"><h1></h1>
+        <div id="today"></div>
+        
+    </div>
+    <script>
+        includeHTML();
+        
+
+        function news(res){
+            let rt = '';
+            rt+=`<div cleas=''>${res.todayd}<br>${res.today}</div>`
+
+            rt+="<table border='1'>"
+            rt+="<tr>"
+            for (let i = 0; i < res.w1d.length ; i++) {
+                let red = ''
+                if (res.w1d[i] == res.todayd) red='bgred'
+                rt+=`<td align='center' class='${red}'>${res.w1d[i]}</td>`
+            }
+            rt+="</tr>"  
+            rt+="<tr>"
+            for (let i = 0; i < res.w1.length ; i++) {
+                rt+=`<td valign='top' width='19%'>${res.w1[i]}</td>`
+            }
+            rt+="</tr>"              
+            rt+="<tr>"
+            for (let i = 0; i < res.w2d.length ; i++) {
+                rt+=`<td align='center'>${res.w2d[i]}</td>`
+            }
+            rt+="</tr>"  
+            rt+="<tr>"
+            for (let i = 0; i < res.w2.length ; i++) {
+                rt+=`<td valign='top' width='19%'>${res.w2[i]}</td>`
+            }
+            rt+="</tr>"              
+            rt+="</table>"
+            document.getElementById("today").innerHTML = rt;
+        }
+
+
+        fetch('calender.json')
+            .then(res => {
+                return res.json();
+            }).then(result => {
+                news(result);
+                // document.getElementById("today").innerHTML = result
+            });
+
+    </script>
+</body>
+</html>
