@@ -1,6 +1,6 @@
 body{
     margin:0 auto;
-    width:100vw;
+    /* width:100vw; */
     font-family: 微軟正黑體,"Microsoft JhengHei" !important;
     font-size: 3.5vw;
       justify-content: center;    
@@ -8,7 +8,7 @@ body{
 
 #content
 {
-  width:100vw;
+  /* width:100vw; */
   /* 水平置中 */
   justify-content: center;    
   /* 垂直置中 */
@@ -19,7 +19,7 @@ body{
 
 #header
 {
-  width:100vw;
+  /* width:100vw; */
   background-color: rgba(44, 44, 44, 0.692);
 
   padding: 10px 30px;
